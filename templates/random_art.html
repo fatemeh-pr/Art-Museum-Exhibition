@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block title %}Random Art{% endblock %}
+
+{% block body_class %}random-page{% endblock %}
+
+{% block content %}
+
+<section class="random-content">
+
+    <div class="art-info-card shadow-lg">
+
+        <div class="row align-items-center g-4">
+
+            {% if artwork.image %}
+
+                <div class="col-md-5 text-center">
+
+                    <img
+                        src="{{ artwork.image }}"
+                        alt="{{ artwork.title }}"
+                        class="art-info-image"
+                    >
+
+                </div>
+            {% endif %}
+
+
+            <div class="col-md-7">
+
+                <h1 class="art-title mb-4">
+                    {{ artwork.title }}
+                </h1>
+
+                {% if artwork.start_date %}
+                    <p>
+                        <strong>Start Date:</strong>
+                        {% if artwork.start_date < 0 %}
+                        {{ artwork.start_date | abs }} BCE
+                        {% else %}
+                        {{ artwork.start_date }}
+                        {% endif %}
+                    </p>
+                {% endif %}
+                
+                {% if artwork.end_date %}
+                    <p>
+                        <strong>End Date:</strong>
+                        {% if artwork.end_date < 0 %}
+                        {{ artwork.end_date | abs }} BCE
+                        {% else %}
+                        {{ artwork.end_date }}
+                        {% endif %}
+                    </p>
+                {% endif %}
+
+            </div>
+
+        </div>
+
+
+        {% if artwork.description %}
+            <div class="mt-4">
+
+                <h4>Description</h4>
+
+                <p class="art-description">
+                    {{ artwork.description }}
+                </p>
+
+            </div>
+        {% endif %}
+
+
+        
+        <div class="text-center mt-4">
+
+            <a
+                href="{{ url_for('random_art') }}"
+                class="btn btn-light"
+            >
+                Discover Another Artwork
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

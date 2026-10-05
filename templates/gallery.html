@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block title %}{{ gallery_title }}{% endblock %}
+
+{% block body_class %}{{ gallery_name }}-page gallery-page{% endblock %}
+
+{% block content %}
+
+<section class="gallery-content">
+
+
+    <div class="gallery-heading">
+
+        <h1>{{ gallery_title }}</h1>
+
+        <p>
+            Explore the collection
+        </p>
+
+    </div>
+
+
+    <div class="artwork-grid">
+
+        {% for artwork in artworks %}
+
+        <div class="artwork-card">
+
+            {% if artwork.image %}
+
+                <img
+                    src="{{ artwork.image }}"
+                    alt="{{ artwork.title }}"
+                    class="artwork-image"
+                >
+
+            {% endif %}
+
+
+            <div class="artwork-card-content">
+
+                <h2>
+                    {{ artwork.title }}
+                </h2>
+
+                <a
+                    href="{{ url_for('artwork', artwork_id=artwork.id) }}"
+                    class="museum-button"
+                >
+                    View Artwork
+                </a>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+
+    <nav class="museum-pagination" aria-label="Gallery pages">
+
+        {% if page > 1 %}
+
+        <a
+            href="{{ url_for(
+                'gallery',
+                gallery_name=gallery_name,
+                page=page-1
+            ) }}"
+            class="page-arrow"
+        >
+            ←
+        </a>
+
+        {% endif %}
+
+
+        {% for page_number in range([1, page - 4]|max,
+            [total_pages + 1, page + 6]|min) %}
+
+        <a
+            href="{{ url_for(
+                'gallery',
+                gallery_name=gallery_name,
+                page=page_number
+            ) }}"
+            class="
+                page-number
+                {% if page_number == page %}current-page{% endif %}
+            "
+        >
+            {{ page_number }}
+        </a>
+
+        {% endfor %}
+
+
+        {% if page < total_pages %}
+
+        <a
+            href="{{ url_for(
+                'gallery',
+                gallery_name=gallery_name,
+                page=page+1
+            ) }}"
+            class="page-arrow"
+        >
+            →
+        </a>
+
+        {% endif %}
+
+    </nav>
+
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}The Virtual Museum{% endblock %}</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+    
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+</head>
+
+<body class="{% block body_class %}{% endblock %}">
+
+    <header class="site-header">
+
+        <a href="{{ url_for('home') }}" class="museum-logo">
+            The Virtual Museum
+        </a>
+
+        <nav class="main-nav">
+
+            <a href="{{ url_for('home') }}">
+                Home
+            </a>
+
+            <a href="{{ url_for('random_art') }}">
+                Random Art
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="museum-footer">
+        <a href="https://artsearch.io/" target="_blank" rel="noopener noreferrer">
+            Art Search
+        </a>
+    </footer>
+
+</body>
+</html>

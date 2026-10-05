@@ -1,0 +1,222 @@
+{% extends "base.html" %}
+
+{% block title %}The Virtual Museum{% endblock %}
+
+{% block body_class %}home-page{% endblock %}
+
+
+{% block content %}
+
+<section class="home-content">
+
+    <div class="museum-intro">
+
+        <h1>The Virtual Museum</h1>
+
+        <p>
+            Explore art from different cultures, periods and artistic traditions.
+        </p>
+
+    </div>
+
+
+    <div class="gallery-grid">
+
+
+        <!-- Ancient Worlds -->
+        <div class="gallery-card">
+
+            <img
+                src="{{ url_for('static', filename='images/ancient-gallery.jpg') }}"
+                alt="Ancient Worlds"
+            >
+
+            <div class="gallery-card-content">
+
+                <h2>Ancient Worlds</h2>
+
+                <a
+                    href="{{ url_for('gallery', gallery_name='ancient', page=1) }}"
+                    class="museum-button"
+                >
+                    Visit Gallery
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Portraits & People -->
+        <div class="gallery-card">
+
+            <img
+                src="{{ url_for('static', filename='images/portraits-gallery.jpg') }}"
+                alt="Portraits and People"
+            >
+
+            <div class="gallery-card-content">
+
+                <h2>Portraits & People</h2>
+
+                <a
+                    href="{{ url_for('gallery', gallery_name='portraits', page=1) }}"
+                    class="museum-button"
+                >
+                    Visit Gallery
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Nature & Landscapes -->
+        <div class="gallery-card">
+
+            <img
+                src="{{ url_for('static', filename='images/nature-gallery.jpg') }}"
+                alt="Nature and Landscapes"
+            >
+
+            <div class="gallery-card-content">
+
+                <h2>Nature & Landscapes</h2>
+
+                <a
+                    href="{{ url_for('gallery', gallery_name='nature', page=1) }}"
+                    class="museum-button"
+                >
+                    Visit Gallery
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Sacred & Mythological -->
+        <div class="gallery-card">
+
+            <img
+                src="{{ url_for('static', filename='images/sacred-gallery.jpg') }}"
+                alt="Sacred and Mythological Art"
+            >
+
+            <div class="gallery-card-content">
+
+                <h2>Sacred & Mythological</h2>
+
+                <a
+                    href="{{ url_for('gallery', gallery_name='sacred', page=1) }}"
+                    class="museum-button"
+                >
+                    Visit Gallery
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Impressionism & Beyond -->
+        <div class="gallery-card">
+
+            <img
+                src="{{ url_for('static', filename='images/impressionism-gallery.jpg') }}"
+                alt="Impressionism and Beyond"
+            >
+
+            <div class="gallery-card-content">
+
+                <h2>Impressionism & Beyond</h2>
+
+                <a
+                    href="{{ url_for('gallery', gallery_name='impressionism', page=1) }}"
+                    class="museum-button"
+                >
+                    Visit Gallery
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Sculpture -->
+        <div class="gallery-card">
+
+            <img
+                src="{{ url_for('static', filename='images/sculpture-gallery.jpg') }}"
+                alt="Sculpture"
+            >
+
+            <div class="gallery-card-content">
+
+                <h2>Sculpture</h2>
+
+                <a
+                    href="{{ url_for('gallery', gallery_name='sculpture', page=1) }}"
+                    class="museum-button"
+                >
+                    Visit Gallery
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Art Beyond Paintings -->
+        <div class="gallery-card">
+
+            <img
+                src="{{ url_for('static', filename='images/objects-gallery.jpg') }}"
+                alt="Art Beyond Paintings"
+            >
+
+            <div class="gallery-card-content">
+
+                <h2>Art Beyond Paintings</h2>
+
+                <a
+                    href="{{ url_for('gallery', gallery_name='objects', page=1) }}"
+                    class="museum-button"
+                >
+                    Visit Gallery
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Art Around the World -->
+        <div class="gallery-card">
+
+            <img
+                src="{{ url_for('static', filename='images/world-gallery.jpg') }}"
+                alt="Art Around the World"
+            >
+
+            <div class="gallery-card-content">
+
+                <h2>Art Around the World</h2>
+
+                <a
+                    href="{{ url_for('gallery', gallery_name='world', page=1) }}"
+                    class="museum-button"
+                >
+                    Visit Gallery
+                </a>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+{% endblock %}

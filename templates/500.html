@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Server Error{% endblock %}
+
+{% block body_class %}error-page{% endblock %}
+
+{% block content %}
+<section class="error-content">
+    <div class="info-card shadow-lg">
+        <div class="row align-items-center g-4 text-center">
+            <h1>An unexpected error has occurred!</br>Please try again later.</h1>
+            <p><a href="{{ url_for('home') }}" class="btn btn-light">Back</a></p>
+        </div>
+    </div>
+</section>
+{% endblock %}

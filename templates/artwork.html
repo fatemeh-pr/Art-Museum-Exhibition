@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+
+{% block title %}{{ artwork.title }}{% endblock %}
+
+
+{% block body_class %}artwork-page{% endblock %}
+
+
+{% block content %}
+
+<section class="artwork-detail">
+
+    <div class="artwork-detail-card">
+
+
+        {% if artwork.image %}
+
+        <div class="artwork-detail-image-container">
+
+            <img
+                src="{{ artwork.image }}"
+                alt="{{ artwork.title }}"
+                class="artwork-detail-image"
+            >
+
+        </div>
+
+        {% endif %}
+
+
+        <div class="artwork-detail-information">
+
+            <h1>
+                {{ artwork.title }}
+            </h1>
+
+
+            <div class="artwork-dates">
+
+                {% if artwork.start_date %}
+                    <p>
+                        <strong>Start Date:</strong>
+                        {% if artwork.start_date < 0 %}
+                        {{ artwork.start_date | abs }} BCE
+                        {% else %}
+                        {{ artwork.start_date }}
+                        {% endif %}
+                    </p>
+                {% endif %}
+                
+                {% if artwork.end_date %}
+                    <p>
+                        <strong>End Date:</strong>
+                        {% if artwork.end_date < 0 %}
+                        {{ artwork.end_date | abs }} BCE
+                        {% else %}
+                        {{ artwork.end_date }}
+                        {% endif %}
+                    </p>
+                {% endif %}
+            </div>
+
+            {% if artwork.description %}
+                <div class="artwork-description">
+
+                    <h2>About the Artwork</h2>
+                    <p>
+                        {{ artwork.description }}
+                    </p>
+
+                </div>
+            {% endif %}
+
+        </div>
+
+
+    </div>
+
+</section>
+
+{% endblock %}
